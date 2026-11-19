@@ -1,0 +1,526 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="كل هدية تحكي حكاية، متجر سعودي للهدايا الفاخرة والعطور وصناديق الهدايا.">
+  <title>كل هدية تحكي حكاية | متجر الهدايا</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --wine: #642D3B;
+      --cream: #F8F5EF;
+      --gold: #C5A46D;
+      --brown: #49372F;
+      --rose: #D8BDB5;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'IBM Plex Sans Arabic', sans-serif;
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.8;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .announcement {
+      background: var(--wine);
+      color: white;
+      text-align: center;
+      padding: 9px;
+      font-size: 13px;
+    }
+
+    header {
+      background: var(--cream);
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      border-bottom: 1px solid #e9e0d5;
+    }
+
+    .logo {
+      color: var(--wine);
+      font-size: 21px;
+      font-weight: 700;
+    }
+
+    .logo small {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      direction: ltr;
+      text-align: right;
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .cart {
+      background: var(--wine);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .hero {
+      min-height: 540px;
+      background:
+        linear-gradient(90deg, rgba(35,20,23,.82), rgba(35,20,23,.25)),
+        url('https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=1800&q=90')
+        center/cover;
+      display: flex;
+      align-items: center;
+      padding: 70px 9%;
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 570px;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      letter-spacing: 2px;
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: clamp(35px, 5vw, 62px);
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+
+    h1 span, h2 span {
+      color: var(--gold);
+    }
+
+    .hero p {
+      margin-bottom: 28px;
+      color: #f2e9df;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--gold);
+      color: #2f211e;
+      padding: 12px 30px;
+      border-radius: 3px;
+      font-weight: 600;
+      transition: .3s;
+    }
+
+    .button:hover {
+      background: white;
+      transform: translateY(-3px);
+    }
+
+    section {
+      padding: 75px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      color: var(--wine);
+      font-size: 32px;
+    }
+
+    .section-title p {
+      color: #8c7b70;
+      margin-top: 8px;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .category {
+      position: relative;
+      height: 280px;
+      overflow: hidden;
+      background: var(--rose);
+    }
+
+    .category img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: .5s;
+    }
+
+    .category:hover img {
+      transform: scale(1.08);
+    }
+
+    .category h3 {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      padding: 35px 15px 15px;
+      color: white;
+      background: linear-gradient(transparent, rgba(0,0,0,.75));
+      font-size: 19px;
+    }
+
+    .products {
+      background: #f0ebe3;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .product {
+      background: white;
+      padding-bottom: 20px;
+      text-align: center;
+      transition: .3s;
+    }
+
+    .product:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px #49372f15;
+    }
+
+    .product img {
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+    }
+
+    .product h3 {
+      color: var(--wine);
+      margin: 14px 0 4px;
+    }
+
+    .price {
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .add-button {
+      background: var(--wine);
+      color: white;
+      border: none;
+      padding: 9px 22px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .custom {
+      background: var(--wine);
+      color: white;
+      text-align: center;
+    }
+
+    .custom h2 {
+      font-size: 35px;
+      margin-bottom: 12px;
+    }
+
+    .custom p {
+      margin-bottom: 25px;
+      color: #eee0d9;
+    }
+
+    .custom .button {
+      background: var(--gold);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      text-align: center;
+    }
+
+    .feature {
+      padding: 25px;
+    }
+
+    .feature span {
+      color: var(--gold);
+      font-size: 35px;
+    }
+
+    .feature h3 {
+      color: var(--wine);
+      margin: 10px 0;
+    }
+
+    footer {
+      background: #332722;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    footer p {
+      color: #d8c9bd;
+      font-size: 14px;
+      margin: 8px;
+    }
+
+    .copyright {
+      border-top: 1px solid #ffffff20;
+      margin-top: 20px;
+      padding-top: 20px;
+      font-size: 12px;
+    }
+
+    @media (max-width: 850px) {
+      header {
+        justify-content: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .categories {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 550px) {
+      .categories,
+      .product-grid,
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 450px;
+        padding: 40px 7%;
+      }
+
+      nav {
+        gap: 12px;
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="announcement">
+    ✦ كل هدية تحكي حكاية... وأجمل الحكايات تبدأ بهدية ✦
+  </div>
+
+  <header>
+    <a href="#" class="logo">
+      كل هدية تحكي حكاية
+      <small>EVERY GIFT TELLS A STORY</small>
+    </a>
+
+    <nav>
+      <a href="#home">الرئيسية</a>
+      <a href="#categories">الأقسام</a>
+      <a href="#products">منتجاتنا</a>
+      <a href="#custom">الهدايا المخصصة</a>
+      <a href="#contact">تواصل معنا</a>
+    </nav>
+
+    <button class="cart" onclick="showCart()">
+      🛍 السلة (<span id="cartCount">0</span>)
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="eyebrow">هدايا تُختار بالقلب</div>
+        <h1>
+          لأن لكل شخص حكاية،
+          <span>ولكل حكاية هدية.</span>
+        </h1>
+        <p>
+          ليست مجرد هدية... بل حكاية من الحب والاهتمام.
+          اكتشف تشكيلتنا من الهدايا الفاخرة والمميزة.
+        </p>
+        <a href="#categories" class="button">اكتشف هديتك ←</a>
+      </div>
+    </section>
+
+    <section id="categories">
+      <div class="section-title">
+        <div class="eyebrow">اختر الحكاية</div>
+        <h2>تسوّق حسب <span>الفئة</span></h2>
+        <p>لكل مناسبة هدية، ولكل هدية حكاية.</p>
+      </div>
+
+      <div class="categories">
+        <a class="category" href="#products">
+          <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=700&q=85" alt="عطور فاخرة">
+          <h3>العطور الفاخرة</h3>
+        </a>
+
+        <a class="category" href="#products">
+          <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=700&q=85" alt="العود والبخور">
+          <h3>العود والبخور</h3>
+        </a>
+
+        <a class="category" href="#products">
+          <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=700&q=85" alt="صناديق الهدايا">
+          <h3>صناديق الهدايا</h3>
+        </a>
+
+        <a class="category" href="#products">
+          <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=700&q=85" alt="هدايا المناسبات">
+          <h3>هدايا المناسبات</h3>
+        </a>
+      </div>
+    </section>
+
+    <section class="products" id="products">
+      <div class="section-title">
+        <div class="eyebrow">منتقاة بعناية</div>
+        <h2>منتجات <span>مميزة</span></h2>
+        <p>تشكيلة مختارة لتصنع أجمل اللحظات.</p>
+      </div>
+
+      <div class="product-grid">
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=700&q=85" alt="عطر فاخر">
+          <h3>عطر الحكاية</h3>
+          <p class="price">250 ر.س</p>
+          <button class="add-button" onclick="addToCart('عطر الحكاية',250)">أضف إلى السلة</button>
+        </article>
+
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=700&q=85" alt="صندوق هدية">
+          <h3>صندوق فرحة</h3>
+          <p class="price">180 ر.س</p>
+          <button class="add-button" onclick="addToCart('صندوق فرحة',180)">أضف إلى السلة</button>
+        </article>
+
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=700&q=85" alt="هدية عود">
+          <h3>مجموعة العود</h3>
+          <p class="price">320 ر.س</p>
+          <button class="add-button" onclick="addToCart('مجموعة العود',320)">أضف إلى السلة</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="custom" id="custom">
+      <div class="eyebrow">هدية تشبه من تحب</div>
+      <h2>اصنع هدية تحمل اسماً وحكاية</h2>
+      <p>أضف اسم الشخص الذي تحبه ورسالة إهداء خاصة لتجعل هديتك أكثر تميزاً.</p>
+      <a href="#contact" class="button">اطلب هديتك المخصصة ←</a>
+    </section>
+
+    <section>
+      <div class="section-title">
+        <div class="eyebrow">تجربة مختلفة</div>
+        <h2>لماذا تختار <span>متجرنا؟</span></h2>
+      </div>
+
+      <div class="features">
+        <div class="feature">
+          <span>✧</span>
+          <h3>اختيارات فاخرة</h3>
+          <p>منتجات منتقاة بعناية وذوق.</p>
+        </div>
+
+        <div class="feature">
+          <span>♡</span>
+          <h3>تغليف مميز</h3>
+          <p>تفاصيل أنيقة تضيف للهدية جمالاً.</p>
+        </div>
+
+        <div class="feature">
+          <span>✦</span>
+          <h3>لمستك الخاصة</h3>
+          <p>أضف رسالتك واجعل هديتك فريدة.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <h2>كل هدية تحكي حكاية</h2>
+    <p>ليست مجرد هدية... بل حكاية من الحب والاهتمام.</p>
+    <p>المملكة العربية السعودية</p>
+    <p>البريد التجريبي: hello@kolhadiya.com</p>
+    <p>رقم تجريبي: +966 55 738 2941</p>
+    <div class="copyright">
+      © 2026 كل هدية تحكي حكاية — جميع الحقوق محفوظة
+    </div>
+  </footer>
+
+  <script>
+    let cart = [];
+
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      document.getElementById("cartCount").textContent = cart.length;
+      alert("تمت إضافة " + name + " إلى السلة بنجاح 🎁");
+    }
+
+    function showCart() {
+      if (cart.length === 0) {
+        alert("سلة التسوق فارغة حالياً.");
+        return;
+      }
+
+      let total = cart.reduce((sum, item) => sum + item.price, 0);
+      let details = cart.map(item =>
+        item.name + " - " + item.price + " ر.س"
+      ).join("\n");
+
+      alert(
+        "محتويات السلة:\n\n" +
+        details +
+        "\n\nالإجمالي: " + total + " ر.س"
+      );
+    }
+  </script>
+
+</body>
+</html>
